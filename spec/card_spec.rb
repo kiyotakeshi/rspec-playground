@@ -11,9 +11,15 @@ class Card
 end
 
 RSpec.describe 'Card' do
-  it 'has a type and suit' do
-    card = Card.new('ace', 'spades')
-    expect(card.type).to eq('ace')
-    expect(card.suit).to eq('spades')
+  before do
+    # puts "this called before each example"
+    @card = Card.new('ace', 'spades')
+  end
+
+  it 'has a type' do
+    expect(@card.type).to eq('ace')
+  end
+  it 'has a suit' do
+    expect(@card.suit).to eq('spades')
   end
 end
