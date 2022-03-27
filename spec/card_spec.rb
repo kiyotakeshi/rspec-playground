@@ -11,15 +11,19 @@ class Card
 end
 
 RSpec.describe 'Card' do
-  before do
-    # puts "this called before each example"
-    @card = Card.new('ace', 'spades')
+  # before do
+  #   @card = Card.new('ace', 'spades')
+  # end
+
+  # invoke each example, so we are guaranteeing isolation and independence
+  def card
+    Card.new('ace', 'spades')
   end
 
   it 'has a type' do
-    expect(@card.type).to eq('ace')
+    expect(card.type).to eq('ace')
   end
   it 'has a suit' do
-    expect(@card.suit).to eq('spades')
+    expect(card.suit).to eq('spades')
   end
 end
