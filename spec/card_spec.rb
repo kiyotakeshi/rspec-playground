@@ -1,5 +1,6 @@
 class Card
-  attr_reader :type, :suit
+  attr_accessor :type, :suit
+
   def initialize(type, suit)
     @type = type
     @suit = suit
@@ -16,13 +17,17 @@ RSpec.describe 'Card' do
   # end
 
   # invoke each example, so we are guaranteeing isolation and independence
-  def card
-    Card.new('ace', 'spades')
-  end
+  # def card
+  #   Card.new('ace', 'spades')
+  # end
+  let(:card) { Card.new('ace', 'spades') }
 
   it 'has a type' do
     expect(card.type).to eq('ace')
+    card.type = 'Queen'
+    expect(card.type).to eq('Queen')
   end
+
   it 'has a suit' do
     expect(card.suit).to eq('spades')
   end
